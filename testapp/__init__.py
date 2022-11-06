@@ -18,11 +18,11 @@ app.register_blueprint(janken_module)
 # sqlite
 db = SQLAlchemy(app)
 from .models import employee
-
-"""
-with app.app_context():
-    db.create_all()
-"""
+import os;
+if os.path.exists('./instance/sample_flask.db') == False:
+    with app.app_context():
+        db.drop_all()
+        db.create_all()
 
 # views.pyの内容を読み込み(ホームページ)
 import testapp.views
