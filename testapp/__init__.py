@@ -19,7 +19,10 @@ app.register_blueprint(janken_module)
 db = SQLAlchemy(app)
 from .models import employee
 
+"""
 with app.app_context():
     db.create_all()
+"""
 
+# views.pyの内容を読み込み(ホームページ)
 import testapp.views
